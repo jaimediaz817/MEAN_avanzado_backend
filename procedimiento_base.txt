@@ -1,0 +1,8 @@
+
+- Crear proyecto desde cero:
+npm init -y
+
+- Instalación de paquetes:
+npm i express --save
+npm i nodemon -g
+
