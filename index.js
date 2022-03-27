@@ -9,17 +9,22 @@ var cors = require('cors');
 const app = express();
 
 // TODO: cors - middleware - fn que se va a ejecutar para todo lo que está debajo (funciones)
-app.use( cors() );
+app.use(cors());
 
+// LECTURA Y PARSEO DEL BODY
+app.use(express.json());
 
 // Test DB:CONNECTION
 dbConnection();
 
+// Routes
+const userRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
+
 // Rutas
-app.get('/', (req, res) => {
-    // ejecutar cuando se haga solicitud
-    return res.status(201).json({ test: 817 });
-});
+app.use('/api/usuarios', userRoutes);
+app.use('/api/auth', authRoutes);
+//app.use('/api/usuarios', userRoutes);
 
 app.listen( process.env.PORT || 3000, () => {
     console.log('Corriendo en el puerto: ', process.env.PORT || 3000);
