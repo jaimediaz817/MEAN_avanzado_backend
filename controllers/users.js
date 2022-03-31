@@ -3,12 +3,30 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const { jwtGenerate } = require('../helpers/jwt');
 
+/**
+ * Get all users
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 const getUsers = async (req, res) => {
-    const users = await User.find({}, 'name email role google status_deleted');
+    // paginación
+    const from = Number(req.query.from);
+    const to = Number(req.query.to);
+
+    // coleccion de promesas en lo s que se puede poner en await 
+    const [ users, total ] = await Promise.all([
+        User.find({}, 'name email role google image status_deleted')
+            .skip(from)
+            .limit(5),
+
+        User.countDocuments()
+    ]);    
+
     res.json({
         success: true,
         users,
-        uid: req.uid
+        total
     });
 }
 

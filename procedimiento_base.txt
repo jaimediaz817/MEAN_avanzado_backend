@@ -1,8 +1,27 @@
 
+# INSTALACIONES
 - Crear proyecto desde cero:
 npm init -y
 
 - Instalación de paquetes:
 npm i express --save
 npm i nodemon -g
+npm i dotenv --save -D
+npm i mongoose  --save
 
+# MONGO 
+- crear directorio databse => config.js
+
+# OTROS paquetes
+
+- CORS: aceptar peticiones de diferentes dominios
+npm i cors --save
+
+- validators:
+npm i express-validator --save
+
+- encriptar contraseñas
+npm i bcryptjs --save
+
+- instalar JWT 
+npm i jsonwebtoken --save
