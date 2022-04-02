@@ -22,6 +22,10 @@ app.use(express.json());
 // Test DB:CONNECTION
 dbConnection();
 
+// TODO: test - directorio público
+app.use( express.static('public') );
+
+
 // Routes
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');

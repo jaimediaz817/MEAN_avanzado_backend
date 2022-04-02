@@ -25,3 +25,16 @@ npm i bcryptjs --save
 
 - instalar JWT 
 npm i jsonwebtoken --save
+
+- Upload files 
+npm i express-fileupload --save
+
+- UUID 
+npm i uuid --save
+
+- MULTER
+npm i multer --save
+
+# GOOGLE SIGN IN:
+https://developers.google.com/identity/sign-in/web/sign-in
+
